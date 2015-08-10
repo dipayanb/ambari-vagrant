@@ -26,6 +26,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, :path => "bootstrap.sh"
 
+  # Add shared folder for development
+  config.vm.synced_folder "../..", "/development"
+
   config.vm.define :c6401 do |c6401|
     # uncomment the line below to set up the ambari dev environment
     # c6401.vm.provision :shell, :path => "dev-bootstrap.sh"
