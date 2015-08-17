@@ -18,6 +18,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # CentOS 7.0 x86_64
   config.vm.box_url = "http://cloud.terry.im/vagrant/oraclelinux-7-x86_64.box"
 
+  # Add shared folder for development
+  config.vm.synced_folder "../..", "/development"
+
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", 3072] # RAM allocated to each VM
   end
